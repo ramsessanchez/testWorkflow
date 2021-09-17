@@ -18,6 +18,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: |
-            darwin-amd64.zip
-            linux-amd64.zip
-            windows-amd64.zip
+              build/**
