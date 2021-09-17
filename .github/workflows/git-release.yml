@@ -18,7 +18,6 @@ jobs:
           workflow: build-and-publish.yml
           workflow_conclusion: success
           branch: main
-          event: push
           name: drop
           path: build/drop
           repo: microsoftgraph/msgraph-sdk-java-core
