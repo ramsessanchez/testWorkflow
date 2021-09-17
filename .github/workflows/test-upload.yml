@@ -9,7 +9,7 @@ jobs:
     environment: test
     runs-on: ubuntu-latest
     env: 
-      TAG: v1.1.6
+      TAG: v1.1.7
     steps: 
     - uses: actions/checkout@v2
 
@@ -20,7 +20,6 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: drop
-        path: path/to/artifact/**
     - name: Create tag
       uses: rickstaa/action-create-tag@v1.2.0
       with:
