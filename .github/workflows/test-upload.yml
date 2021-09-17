@@ -20,6 +20,8 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: drop
+        path: |
+            path/to/artifact/world.txt
     - name: Create tag
       uses: rickstaa/action-create-tag@v1.2.0
       with:
