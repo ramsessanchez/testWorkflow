@@ -51,4 +51,4 @@ jobs:
           ALLOW_EMPTY_CHANGELOG: "true"
         with:
           args: |
-              ./drop2/world.txt
+              ./drop2/*.zip
