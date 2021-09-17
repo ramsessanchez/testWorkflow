@@ -7,10 +7,30 @@ on:
   workflow_dispatch:
   
 jobs:
+  create_a:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - run: mkdir -p path/to/artifact
+      - run: echo hello > path/to/artifact/world.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: drop2
+          path: path/to/artifact/world.txt      
+      
   Git_Release:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Dowload this Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: drop2
+          PATH: drop2
+      - name: Display structure of downloaded files
+        run: ls -R
+    
       - name: Download workflow artifact
         uses: dawidd6/action-download-artifact@v2.14.1
         with: 
@@ -28,3 +48,6 @@ jobs:
           PRE_RELEASE: "false"
           CHANGELOG_FILE: "CHANGELOG.md"
           ALLOW_EMPTY_CHANGELOG: "true"
+        with:
+          args: |
+              drop2/world.txt
