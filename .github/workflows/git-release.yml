@@ -8,7 +8,7 @@ on:
   
 jobs:
   create_a:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
       - run: mkdir -p path/to/artifact
@@ -20,7 +20,7 @@ jobs:
       
   Git_Release:
     needs: create_a
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -43,7 +43,7 @@ jobs:
            name: drop 
            path: drop
       - name: Github Release
-        uses: anton-yurchenko/git-release@v4.1
+        uses: docker://antonyurchenko/git-release:latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRAFT_RELEASE: "false"
@@ -52,4 +52,4 @@ jobs:
           ALLOW_EMPTY_CHANGELOG: "true"
         with:
           args: |
-              ${{ steps.download.outputs.download-path }}
+              build/*.zip
