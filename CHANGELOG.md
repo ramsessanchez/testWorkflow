@@ -11,10 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 ## [1.1.8] - 2021-09-17 
+
 ### Added
+
 - Workflow for build validation
 - Workflow for Maven preview and GitHub Release
 - Proper handling for InterruptedException
+
 ### Changed
+
 - Casing fixed for Odata type parsing
 - Removed .azure-pipelines/**
