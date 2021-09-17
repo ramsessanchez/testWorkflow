@@ -14,13 +14,11 @@ jobs:
       - name: Download workflow artifact
         uses: dawidd6/action-download-artifact@v2.14.1
         with:
-          github_token: ${{ secrets.TEST_TOKEN }}
-          workflow: build-and-publish.yml
+          workflow: test-upload.yml
           workflow_conclusion: success
           branch: main
           name: drop
           path: build/drop
-          repo: microsoftgraph/msgraph-sdk-java-core
       - name: Display structure of downloaded files
         run: ls -R
       - name: Github Release
