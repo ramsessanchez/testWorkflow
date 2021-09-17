@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renames request info into request information to avoid conflicts with platform #559
 - Fixes a bug where the server url would not be taken in consideration #626
 
-## [0.0.8] - 2021-08-25
+## [2.0.9] - 2021-08-25
 
 ### Added
 
