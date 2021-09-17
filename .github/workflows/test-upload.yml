@@ -9,7 +9,7 @@ jobs:
     environment: test
     runs-on: ubuntu-latest
     env: 
-      TAG: v1.1.5
+      TAG: v1.1.6
     steps: 
     - uses: actions/checkout@v2
 
