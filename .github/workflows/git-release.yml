@@ -20,6 +20,8 @@ jobs:
            event: push
            name: drop
            path: drop
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: Github Release
         uses: docker://antonyurchenko/git-release:latest
         env:
