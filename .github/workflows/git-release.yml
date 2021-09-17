@@ -18,7 +18,8 @@ jobs:
            workflow_conclusion: success
            branch: main
            event: push
-           name: drop 
+           name: drop
+           path: drop
       - name: Github Release
         uses: docker://antonyurchenko/git-release:latest
         env:
@@ -29,5 +30,5 @@ jobs:
           ALLOW_EMPTY_CHANGELOG: "true"
         with:
           args: |
-              build/**
+              drop/**
               
