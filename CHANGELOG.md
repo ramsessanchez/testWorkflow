@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ##[Unreleased]
 
+###Added
+###Changed
+
 ##[1.1.2] - 2021-09-17 
 ###Added
 - Workflow for build validation
