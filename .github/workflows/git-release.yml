@@ -52,4 +52,4 @@ jobs:
           ALLOW_EMPTY_CHANGELOG: "true"
         with:
           args: |
-              build/*.zip
+              ${{ steps.download.outputs.download-path }}
