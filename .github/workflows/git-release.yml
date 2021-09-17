@@ -19,6 +19,7 @@ jobs:
           path: path/to/artifact/world.txt      
       
   Git_Release:
+    needs: create_a
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
