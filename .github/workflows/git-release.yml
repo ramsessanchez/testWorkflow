@@ -7,32 +7,10 @@ on:
   workflow_dispatch:
   
 jobs:
-  create_a:
-    runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v2
-      - run: mkdir -p path/to/artifact
-      - run: echo hello > path/to/artifact/world.txt
-      - uses: actions/upload-artifact@v2
-        with:
-          name: drop2
-          path: path/to/artifact/world.txt      
-      
   Git_Release:
-    needs: create_a
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Dowload this Artifact
-        id: download
-        uses: actions/download-artifact@v2
-        with:
-          name: drop2
-          path: drop2
-      - name: Display structure of downloaded files
-        run: ls -R
-    
+      - uses: actions/checkout@v2    
       - name: Download workflow artifact
         uses: dawidd6/action-download-artifact@v2.14.1
         with: 
@@ -41,7 +19,6 @@ jobs:
            branch: main
            event: push
            name: drop 
-           path: drop
       - name: Github Release
         uses: docker://antonyurchenko/git-release:latest
         env:
@@ -52,5 +29,5 @@ jobs:
           ALLOW_EMPTY_CHANGELOG: "true"
         with:
           args: |
-              ${{ steps.download.outputs.download-path }}
+              drop/**
               
