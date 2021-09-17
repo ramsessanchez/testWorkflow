@@ -11,6 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download workflow artifact
+        uses: dawidd6/action-download-artifact@v2.14.1
+        with: 
+           workflow: test-upload.yml
+           workflow_conclusion: success
+           branch: main
+           event: push
+           name: drop 
       - name: Github Release
         uses: anton-yurchenko/git-release@v4.1
         env:
