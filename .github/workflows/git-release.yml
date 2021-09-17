@@ -19,7 +19,7 @@ jobs:
            branch: main
            event: push
            name: drop
-           path: drop
+           path: build/drop
       - name: Display structure of downloaded files
         run: ls -R
       - name: Github Release
@@ -32,5 +32,5 @@ jobs:
           ALLOW_EMPTY_CHANGELOG: "true"
         with:
           args: |
-              current/working/directory/**
+              build/**
               
