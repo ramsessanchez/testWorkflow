@@ -21,7 +21,7 @@ jobs:
           event: push
           name: drop
           path: build/drop
-          repo: ${{ github.repository.microsoftgraph.msgraph-sdk-java-core }}
+          repo: microsoftgraph/msgraph-sdk-java-core
       - name: Display structure of downloaded files
         run: ls -R
       - name: Github Release
