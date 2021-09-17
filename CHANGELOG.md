@@ -17,6 +17,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renames request info into request information to avoid conflicts with platform #559
 - Fixes a bug where the server url would not be taken in consideration #626
 
+## [2.0.9] - 2021-09-14 
+
+### Added
+
+- Workflow for build validation
+- Workflow for Maven preview and GitHub Release
+- Proper handling for InterruptedException
+
+### Changed
+
+- Casing fixed for Odata type parsing
+- Removed .azure-pipelines/**
+
 ## [0.0.8] - 2021-08-25
 
 ### Added
