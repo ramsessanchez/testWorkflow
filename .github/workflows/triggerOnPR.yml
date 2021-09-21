@@ -43,6 +43,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2.0.10
         with: 
@@ -50,10 +53,12 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: drop-artifacts/
-      - name: run diff
+
+      - name: test fille compare
         run: |
-            pkgdiff -hide-unchanged ${{steps.download.outputs.download-path}}/drop/ ${{steps.download.outputs.download-path}}/drop2/
-        shell: pwsh
+          import filecmp
+          filecmp.cmpfiles( ${{steps.download.outputs.download-path}}/drop/, ${{steps.download.outputs.download-path}}/drop2/, shallow)
+
       
       
 
