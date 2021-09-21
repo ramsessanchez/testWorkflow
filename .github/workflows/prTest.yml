@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Changelog CI
-        uses: saadmk11/changelog-ci@v0.8.0
+      - name: Update Changelog
+        uses: vemel/update-changelog@0.0.1
+
           
