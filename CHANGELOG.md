@@ -1,3 +1,9 @@
+# Version: 2.0.0
+
+* [#1](https://github.com/ramsessanchez/testWorkflow/pull/1): Create Pr Test
+* [#2](https://github.com/ramsessanchez/testWorkflow/pull/2): Testing changelog CI
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
