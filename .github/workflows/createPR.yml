@@ -21,12 +21,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.3.4
-    
+    - name: Get Version
+      id: GetVersion
+      run: .\Scripts\getLatestVersion.ps1
+      shell: pwsh    
+
     - name: Create PR using the GitHub REST API via hub
       shell: bash
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        MESSAGE_TITLE: Generated beta models and request builders using Typewriter
+        MESSAGE_TITLE: "release ${{ steps.GetVersion.outputs.tag }}"
         MESSAGE_BODY: "This pull request was automatically created by the GitHub Action, **${{github.workflow}}**. \n\n The commit hash is _${{github.sha}}_. \n\n **Important** Check for unexpected deletions or changes in this PR."
         REVIEWERS: ramsessanchez
         ASSIGNEDTO: ramsessanchez
