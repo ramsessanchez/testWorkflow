@@ -14,4 +14,9 @@ $patchVersion = $content[$lineNumber].Substring($versionIndex)
 $version = "$majorVersion.$minorVersion.$patchVersion"
 
 #Set Task output to create tag
-Write-Output "::set-output name=tag::${version}"
+Write-Output "::set-output name=tag::v${version}"
+
+
+
+
+
