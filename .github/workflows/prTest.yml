@@ -11,7 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Get Version
+        id: GetVersion
+        run: .\scripts\getLatestVersion.ps1
+        shell: pwsh
       - name: Update Changelog
         uses: vemel/update-changelog@0.0.1
+        with: 
+          version: ${{ steps.GetVersion.outputs.tag }}
 
           
