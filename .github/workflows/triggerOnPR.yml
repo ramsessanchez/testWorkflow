@@ -54,10 +54,8 @@ jobs:
         run: ls -R
         working-directory: drop-artifacts/
 
-      - name: test fille compare
-        run: |
-          import filecmp
-          filecmp.cmpfiles( ${{steps.download.outputs.download-path}}/drop/, ${{steps.download.outputs.download-path}}/drop2/, shallow)
+      - name: test file compare 
+        run: python ./scripts/compare-files.py ${{steps.download.output.download-path}}/drop/ ${{steps.download.outputs.download-path}}/drop2/
 
       
       
