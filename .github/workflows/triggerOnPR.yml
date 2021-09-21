@@ -52,7 +52,8 @@ jobs:
         working-directory: drop-artifacts/
       - name: run diff
         run: |
-            pkgdiff -hide-unchanged ${{steps.download.outputs.download-path}}/drop/${{steps.download.outputs.download-path}}/drop2/
+            pkgdiff -hide-unchanged ${{steps.download.outputs.download-path}}/drop/ ${{steps.download.outputs.download-path}}/drop2/
+        shell: pwsh
       
       
 
