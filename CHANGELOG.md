@@ -1,12 +1,3 @@
-# Version: 3.3.3
-
-* [#1](https://github.com/ramsessanchez/testWorkflow/pull/1): Create Pr Test
-* [#5](https://github.com/ramsessanchez/testWorkflow/pull/5): release v5.3.1
-* [#6](https://github.com/ramsessanchez/testWorkflow/pull/6): release v5.3.2
-* [#4](https://github.com/ramsessanchez/testWorkflow/pull/4): Generated beta models and request builders using Typewriter
-* [#2](https://github.com/ramsessanchez/testWorkflow/pull/2): Testing changelog CI
-
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
