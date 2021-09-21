@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Trigger on PR
+name: Triggered on PR
 on:
   pull_request:
     branches: [ main ]
