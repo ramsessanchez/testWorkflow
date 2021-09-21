@@ -3,7 +3,7 @@
 name: Pr Test
 on:
   pull_request:
-    branches: test/*
+    branches: "test/*"
   workflow_dispatch:
 
 jobs:
