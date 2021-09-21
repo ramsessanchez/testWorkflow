@@ -7,18 +7,52 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  create-artifact1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get Version
-        id: GetVersion
-        run: .\scripts\getLatestVersion.ps1
-        shell: pwsh
-      - name: Update Changelog
-        uses: vemel/update-changelog@0.0.1
-        id: changelog
-        with: 
-          version: ${{ steps.GetVersion.outputs.tag }}
+      - name: write lines 
+        run: | 
+          mkdir -p artifact
+          echo hello > artifact/hello.txt
+          echo world > artifact/world.txt
+      - name: upload artifact 
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop
+          path: artifact/
 
-          
+  create-artifact2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: write lines 
+        run: | 
+          mkdir -p artifact2
+          echo hello > artifact2/hello.txt
+          echo world! > artifact2/world.txt
+      - name: upload artifact 
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop2
+          path: artifact2/
+  
+  compare-artifacts:
+    runs-on: ubunru-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.0.10
+        with: 
+          path: drop-artifacts/
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: drop-artifacts/
+      - name: run diff
+        run: |
+            pkgdiff -hide-unchanged ${{steps.download.outputs.download-path}}/drop/${{steps.download.outputs.download-path}}/drop2/
+      
+      
+
+  
+    
